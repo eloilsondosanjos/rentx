@@ -9,5 +9,5 @@ COPY . .
 
 EXPOSE 3333
 
-CMD ["npx", "run", "dev"]
+CMD ["npm", "run", "dev"]
 
