@@ -24,6 +24,7 @@
     "prettier/prettier": ["error", {
       "endOfLine":"auto"
     }],
+    "@typescript-eslint/no-unused-vars": "off",
     "import/no-unresolved": "error",
     "@typescript-eslint/naming-convention": [
       "error",
