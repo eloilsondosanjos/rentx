@@ -1,9 +1,9 @@
-import { ICreateUserDTO } from 'modules/accounts/dtos/ICreateUserDTO';
-import { User } from 'modules/accounts/entities/User';
+import { ICreateUserDTO } from '@modules/accounts/dtos/ICreateUserDTO';
+import { User } from '@modules/accounts/entities/User';
 
 import { IUsersRepository } from '../IUsersRepository';
 
-class UsersRepositoryInMomery implements IUsersRepository {
+class UsersRepositoryInMemory implements IUsersRepository {
   users: User[] = [];
 
   async create({
@@ -24,13 +24,13 @@ class UsersRepositoryInMomery implements IUsersRepository {
     this.users.push(user);
   }
 
-  async findByEmail(email: string): Promise<User> {
+  async findByEmail(email: string): Promise<User | undefined> {
     return this.users.find(user => user.email === email);
   }
 
-  async findById(id: string): Promise<User> {
+  async findById(id: string): Promise<User | undefined> {
     return this.users.find(user => user.id === id);
   }
 }
 
-export { UsersRepositoryInMomery };
+export { UsersRepositoryInMemory };
