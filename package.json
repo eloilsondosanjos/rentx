@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "type": "module",
   "scripts": {
-    "dev": "ts-node-dev --poll --transpile-only --ignore-watch node_modules --respawn src/server.ts",
-    "typeorm": "ts-node-dev ./node_modules/typeorm/cli",
-    "test": "jest"
+    "dev": "ts-node-dev --poll --transpile-only --ignore-watch node_modules --respawn -r tsconfig-paths/register src/server.ts",
+    "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli",
+    "test": "NODE_ENV=test jest --runInBand --detectOpenHandles"
   },
   "dependencies": {
     "@typescript-eslint/parser": "^4.28.3",
@@ -43,6 +44,7 @@
     "prettier": "^2.3.2",
     "ts-jest": "^27.0.4",
     "ts-node-dev": "^1.1.8",
+    "tsconfig-paths": "^3.10.1",
     "typescript": "^4.3.5"
   },
   "repository": "git@github.com:eloilsondosanjos/RentX.git",

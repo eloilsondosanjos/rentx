@@ -1,12 +1,13 @@
 {
   "env": {
-    "es2021": true,
+    "es2020": true,
     "node": true,
     "jest": true
   },
   "extends": [
     "airbnb-base",
     "plugin:@typescript-eslint/recommended",
+    "prettier/@typescript-eslint",
     "plugin:prettier/recommended"
   ],
   "parser": "@typescript-eslint/parser",
@@ -21,10 +22,12 @@
   ],
   "rules": {
     "camelcase": "off",
-    "prettier/prettier": ["error", {
-      "endOfLine":"auto"
-    }],
-    "@typescript-eslint/no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars":  [
+      "error",
+      {
+        "argsIgnorePattern": "_"
+      }
+    ],
     "import/no-unresolved": "error",
     "@typescript-eslint/naming-convention": [
       "error",
@@ -45,7 +48,11 @@
     "no-console": "off",
     "no-useless-constructor": "off",
     "no-empty-function": "off",
+    "no-var-requires": true,
     "lines-between-class-members": "off",
+    "@typescript-eslint/explicit-module-boundary-types": ["warn", {
+      "allowArgumentsExplicitlyTypedAsAny": true
+    }],
     "import/extensions": [
       "error",
       "ignorePackages",
@@ -59,7 +66,7 @@
         "newlinesBetween": "always",
         "groups": [
           "module",
-          "/^@shared/",
+          "/^@/",
           [
             "parent",
             "sibling",
@@ -76,14 +83,18 @@
       "error",
       {
         "devDependencies": [
-          "**/*.spec.js"
+          "**/*.spec.js",
+          "jest.config.ts"
         ]
       }
-    ]    
+    ],
+    "prettier/prettier": "error" 
   },
   "settings": {
     "import/resolver": {
-      "typescript": {}
+      "typescript": {
+        "directory": "packages/server/*/tsconfig.json"
+      }
     }
   }
 }
