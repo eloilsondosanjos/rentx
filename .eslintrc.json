@@ -1,10 +1,11 @@
 {
   "env": {
-    "es2020": true,
+    "es2021": true,
     "node": true,
     "jest": true
   },
   "extends": [
+    "prettier",
     "airbnb-base",
     "plugin:@typescript-eslint/recommended",
     "prettier/@typescript-eslint",
@@ -18,16 +19,10 @@
   "plugins": [
     "@typescript-eslint",
     "prettier",
-    "eslint-plugin-import-helpers"    
+    "eslint-plugin-import-helpers"
   ],
   "rules": {
     "camelcase": "off",
-    "@typescript-eslint/no-unused-vars":  [
-      "error",
-      {
-        "argsIgnorePattern": "_"
-      }
-    ],
     "import/no-unresolved": "error",
     "@typescript-eslint/naming-convention": [
       "error",
@@ -48,11 +43,7 @@
     "no-console": "off",
     "no-useless-constructor": "off",
     "no-empty-function": "off",
-    "no-var-requires": true,
     "lines-between-class-members": "off",
-    "@typescript-eslint/explicit-module-boundary-types": ["warn", {
-      "allowArgumentsExplicitlyTypedAsAny": true
-    }],
     "import/extensions": [
       "error",
       "ignorePackages",
@@ -88,13 +79,24 @@
         ]
       }
     ],
-    "prettier/prettier": "error" 
+    "no-var-requires": true,
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "_"
+      }
+    ],
+    "@typescript-eslint/explicit-module-boundary-types": [
+      "warn",
+      {
+        "allowArgumentsExplicitlyTypedAsAny": true
+      }
+    ],
+    "prettier/prettier": "error"
   },
   "settings": {
     "import/resolver": {
-      "typescript": {
-        "directory": "packages/server/*/tsconfig.json"
-      }
+      "typescript": {}
     }
   }
 }
