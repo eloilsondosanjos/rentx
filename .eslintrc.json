@@ -1,6 +1,6 @@
 {
   "env": {
-    "es2021": true,
+    "es2020": true,
     "node": true,
     "jest": true
   },
@@ -8,7 +8,6 @@
     "prettier",
     "airbnb-base",
     "plugin:@typescript-eslint/recommended",
-    "prettier/@typescript-eslint",
     "plugin:prettier/recommended"
   ],
   "parser": "@typescript-eslint/parser",
@@ -18,10 +17,11 @@
   },
   "plugins": [
     "@typescript-eslint",
-    "prettier",
-    "eslint-plugin-import-helpers"
+    "eslint-plugin-import-helpers",
+    "prettier"
   ],
   "rules": {
+    "prettier/prettier": "error",
     "camelcase": "off",
     "import/no-unresolved": "error",
     "@typescript-eslint/naming-convention": [
@@ -57,7 +57,7 @@
         "newlinesBetween": "always",
         "groups": [
           "module",
-          "/^@/",
+          "/^@shared/",
           [
             "parent",
             "sibling",
@@ -74,25 +74,10 @@
       "error",
       {
         "devDependencies": [
-          "**/*.spec.js",
-          "jest.config.ts"
+          "**/*.spec.js"
         ]
       }
-    ],
-    "no-var-requires": true,
-    "@typescript-eslint/no-unused-vars": [
-      "error",
-      {
-        "argsIgnorePattern": "_"
-      }
-    ],
-    "@typescript-eslint/explicit-module-boundary-types": [
-      "warn",
-      {
-        "allowArgumentsExplicitlyTypedAsAny": true
-      }
-    ],
-    "prettier/prettier": "error"
+    ]
   },
   "settings": {
     "import/resolver": {
