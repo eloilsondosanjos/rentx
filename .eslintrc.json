@@ -24,6 +24,8 @@
     "prettier/prettier": "error",
     "camelcase": "off",
     "import/no-unresolved": "error",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "next" }],
     "@typescript-eslint/naming-convention": [
       "error",
       {
