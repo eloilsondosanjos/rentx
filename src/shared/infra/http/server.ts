@@ -35,4 +35,8 @@ app.use(
   },
 );
 
-app.listen(3333, () => console.log('🚀 Server Rentx started on port 3333!'));
+const port = 3333;
+
+app.listen(port, () =>
+  console.log(`🚀 Server Rentx started on http://localhost:${port}!`),
+);
