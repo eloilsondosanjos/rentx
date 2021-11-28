@@ -32,4 +32,5 @@ volumes:
   pgdata:
     driver: local
 
-      # docker-compose down -v --rmi local - remove containers criados
+# docker-compose up -d | sobe o containers da aplicação.
+# docker-compose down -v --rmi local | remove containers criados
