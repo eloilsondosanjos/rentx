@@ -38,7 +38,8 @@
           "match": true
         }
       }
-    ],
+    ],    
+    "@typescript-eslint/explicit-module-boundary-types": "off",
     "class-methods-use-this": "off",
     "import/prefer-default-export": "off",
     "no-shadow": "off",

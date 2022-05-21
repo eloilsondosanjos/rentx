@@ -1,8 +1,9 @@
-import { AppError } from '@shared/errors/AppError';
 import { ICreateUserDTO } from '@modules/accounts/dtos/ICreateUserDTO';
 import { UsersRepositoryInMemory } from '@modules/accounts/repositories/in-memory/UsersRepositoryInMemory';
 import { AuthenticateUserUseCase } from '@modules/accounts/useCases/authenticateUser/AuthenticateUserUseCase';
 import { CreateUserUseCase } from '@modules/accounts/useCases/createUser/CreateUserUseCase';
+
+import { AppError } from '@shared/errors/AppError';
 
 let authenticateUserUseCase: AuthenticateUserUseCase;
 let usersRepositoryInMemory: UsersRepositoryInMemory;
@@ -39,7 +40,7 @@ describe('Authenticate User', () => {
   it('should not be able to authenticate an noneexistent user', () => {
     expect(async () => {
       await authenticateUserUseCase.execute({
-        email: 'false@email.com',
+        email: 'fake@email.com',
         password: '4321',
       });
     }).rejects.toBeInstanceOf(AppError);
